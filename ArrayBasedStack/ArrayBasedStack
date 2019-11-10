@@ -1,0 +1,38 @@
+public class ArrayBasedStack {
+    private int size = 0;
+    private final int capacity;
+    private final int[] stack;
+    
+    public ArrayBasedStack (int num) {
+        capacity = num + 1;
+        stack = new int[capacity];
+    }
+    
+    public void push(int x) {
+        if (size + 1 >= capacity) {
+            System.out.println("Out of stack range");
+            return;
+        }
+        stack[++size] = x;
+    }
+    
+    public void pop() {
+        if(size == 0) {
+            System.out.println("No element to pop");
+            return;
+        }
+        size--;
+    }
+    
+    public int peek() {
+        return stack[size];
+    }
+    
+    public void printStack() {
+        System.out.print("Stack:  ");
+        for (int i = size; i > 0; i--) {
+            System.out.print(stack[i] + "\n\t");
+        }
+        System.out.println("");
+    }
+}
